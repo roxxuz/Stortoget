@@ -1,6 +1,6 @@
-package com.example.stortoget.repository;
+package com.example.stortorget.repository;
 
-import com.example.stortoget.entity.User;
+import com.example.stortorget.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

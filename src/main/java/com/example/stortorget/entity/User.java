@@ -1,4 +1,4 @@
-package com.example.stortoget.entity;
+package com.example.stortorget.entity;
 
 import javax.persistence.*;
 

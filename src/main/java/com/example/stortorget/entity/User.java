@@ -14,7 +14,7 @@ public class User{
     private String password;
     private String phone;
     private String email;
-    private String role;
+    private String role = "user";  // user/admin
     private String img;
 
     public User() {

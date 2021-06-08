@@ -1,6 +1,7 @@
 package com.example.stortorget.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name ="ads")
@@ -16,6 +17,9 @@ public class SalesAd {
     private String userName;
     private int price;
     private String img;
+
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime dateTime;
 
     public long getId() {
         return id;
@@ -73,6 +77,14 @@ public class SalesAd {
         this.img = img;
     }
 
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
     @Override
     public String toString() {
         return "SalesAd{" +
@@ -83,6 +95,7 @@ public class SalesAd {
                 ", userName='" + userName + '\'' +
                 ", price=" + price +
                 ", img='" + img + '\'' +
+                ", dateTime=" + dateTime +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.example.stortoget;
+package com.example.stortorget;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

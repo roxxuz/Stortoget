@@ -2,7 +2,7 @@
     object-fit: cover;
     width: 70px;
     height: 70px;
-    border-radius: 50%;
-    border: 2px solid #da7f8f;
+    border-radius: 25%;
+    border: 2px solid #000000;
     padding: 5px;
 }

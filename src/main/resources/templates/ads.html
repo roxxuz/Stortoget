@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stortorget</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Stortorget Annonser</h1>
+
+<div th:each="ad, iter: ${ads}" style="max-width:1000px; margin:auto;">
+
+    <div class="card text-dark bg-light mb-5">
+        <div class="card-header" th:style="${iter.count} % 2 == 0 ? 'background-color: #eff0f6' : 'background-color: #d7e3ea'">
+            <p th:text="${ad.dateTime}" />
+        </div>
+        <div class="card-body">
+
+            <img th:src="@{${ad.img}}" id="board_ad_img"/>
+
+            <h5 class="card-title"><p th:text="${ad.item}" /></h5>
+            <p class="card-text" th:text="${ad.description}" />
+            <strong>
+            <p class="card-text" th:text="${ad.price}" />
+            </strong>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

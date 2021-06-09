@@ -1,16 +1,11 @@
 package com.example.stortorget.controller;
 
 import com.example.stortorget.entity.SalesAd;
-import com.example.stortorget.repository.SalesAdRepository;
 import com.example.stortorget.service.SalesAdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import java.security.Principal;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
@@ -32,12 +27,6 @@ public class SalesAdController {
         model.addAttribute("ads", salesAdService.getAllAds());
 
         return "ads";
-    }
-
-    @GetMapping("/create_ad")
-    public String createAd(Model model){
-
-        return "create_ad";
     }
 
     @GetMapping("/login")
@@ -70,9 +59,14 @@ public class SalesAdController {
         return "redirect:/ads";
     }
 
+    @GetMapping("/search_ad")
+    public String searchAd(@RequestParam("search") String search,
+                           @RequestParam("category") String category,
+                           Model model){
 
-    @GetMapping("/testi")
-    public String test(){
-        return "test";
+        model.addAttribute("ads", salesAdService.searchAd(search, category));
+
+        return "ads";
     }
+
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>create ad</title>
+  <link rel = "stylesheet" href="css/style.css">
+</head>
+
+<body>
+<br>
+<br>
+<br>
+<br>
+
+<div>
+  <h1 id="title">Create new ad</h1>
+</div>
+
+<div>
+
+  <form th:action="@{/newad}" th:object="${ads}" method="GET">
+    <input type="text" placeholder="Category" th:field="*{category}">
+    <input type="text" placeholder="Description" th:field="*{description}">
+    <input type="text" placeholder="url to image" th:field="*{img}">
+    <input type="text" placeholder="Title" th:field="*{item}"><br>
+    <input type="text" placeholder="Price" th:field="*{price}">
+    <input class="btn" id="button-right" type="submit" value="Create ad">
+  </form>
+
+
+</div>
+
+</body>
+</html>
+

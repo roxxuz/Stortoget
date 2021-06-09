@@ -20,12 +20,25 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="#">Sök annons</a>
-            <a class="nav-item nav-link" href="createads">Skapa annons</a>
+            <a class="nav-item nav-link" th:href="@{/createads}">Skapa annons</a>
             <a class="nav-item nav-link" href="#">Kontoinställningar</a>
             <a class="nav-item nav-link" href="login">Logga in</a>
         </div>
     </div>
 </nav>
+
+<div>
+
+    <form th:action="@{/search_ad}" method="get" autocomplete="off" style="max-width:500px; margin:auto; margin-top:50px;">
+        <div class="form-group">
+
+            <input class="form-control" name="search"></input>
+
+            <button type="submit" class="btn btn-primary my-3"><strong>Sök annons</strong></button>
+        </div>
+
+    </form>
+</div>
 
 <div th:each="ad, iter: ${ads}" style="max-width:1000px; margin:auto;">
 

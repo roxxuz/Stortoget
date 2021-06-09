@@ -18,4 +18,21 @@ public class SalesAdService {
         return salesAdRepository.findAllByOrderByIdDesc();
     }
 
+    public void saveSalesAd(SalesAd salesAd){
+        salesAdRepository.save(salesAd);
+    }
+
+    public List<SalesAd> searchAd(String search, String category) {
+
+        if(category.equals("all")){
+
+            return salesAdRepository.findByItemContainingOrDescriptionContaining(search, search);
+        }
+        else{
+            
+            return salesAdRepository.findByItemContainingAndCategoryOrDescriptionContainingAndCategory(search, category, search, category);
+        }
+
+    }
+
 }

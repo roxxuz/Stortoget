@@ -39,10 +39,17 @@
 <div>
 
   <form th:action="@{/newad}" th:object="${ads}" method="post">
-    <input type="text" placeholder="Category" th:field="*{category}">
+    <input class="form-control" name="search"></input>
+    <select class="mt-4" name="category">
+      <option value="all">Kategori</option>
+      <option value="books">Böcker</option>
+      <option value="music">Musik</option>
+      <option value="electronics">Elektronik</option>
+    </select>
+
+    <input type="text" placeholder="Title" th:field="*{item}">
     <input type="text" placeholder="Description" th:field="*{description}">
     <input type="text" placeholder="url to image" th:field="*{img}">
-    <input type="text" placeholder="Title" th:field="*{item}"><br>
     <input type="text" placeholder="Price" th:field="*{price}">
     <input class="btn" id="button-right" type="submit" value="Skapa annons">
   </form>

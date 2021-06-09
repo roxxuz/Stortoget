@@ -39,8 +39,9 @@ public class Security extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/css/style.css").permitAll()
-                .antMatchers(HttpMethod.GET).permitAll()
+                //.antMatchers(HttpMethod.GET).permitAll()
                 .antMatchers("/ads").permitAll()
+                .antMatchers("/search_ad").permitAll()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()

@@ -40,7 +40,7 @@ public class SalesAdController {
     }
 
     @GetMapping("/createads")
-    public String createads(Model model, SalesAd salesAd){
+    public String createads(Model model, SalesAd salesAd, Principal principal){
 
         model.addAttribute("ads", salesAd);
 
@@ -48,13 +48,12 @@ public class SalesAdController {
     }
 
 
-    @GetMapping("/newad")
-    public String newad(Model model, Principal principal, SalesAd salesAd){
-    //    model.addAttribute("nad", salesAd);
-    //    System.out.println(principal.getName());
-    //    salesAd.setUserName(principal.getName());
-        salesAdService.saveSalesAd(salesAd);
+    @PostMapping("/newad")
+    public String newad(Principal principal, SalesAd salesAd){
 
+        salesAd.setUserName(principal.getName());
+
+        salesAdService.saveSalesAd(salesAd);
 
         return "redirect:/ads";
     }

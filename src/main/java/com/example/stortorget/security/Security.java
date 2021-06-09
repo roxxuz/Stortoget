@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
@@ -42,6 +43,8 @@ public class Security extends WebSecurityConfigurerAdapter {
                 //.antMatchers(HttpMethod.GET).permitAll()
                 .antMatchers("/ads").permitAll()
                 .antMatchers("/search_ad").permitAll()
+                .antMatchers("/createaccount").permitAll()
+                .antMatchers("/createAcc").permitAll()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -54,7 +57,10 @@ public class Security extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .logout()
-                .permitAll()
+                .logoutSuccessUrl("/")
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                //.permitAll()
                 .deleteCookies("JSESSIONID");
 
     }

@@ -29,7 +29,7 @@ public class SalesAdService {
             return salesAdRepository.findByItemContainingOrDescriptionContaining(search, search);
         }
         else{
-            
+
             return salesAdRepository.findByItemContainingAndCategoryOrDescriptionContainingAndCategory(search, category, search, category);
         }
 

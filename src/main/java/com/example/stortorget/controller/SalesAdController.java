@@ -39,7 +39,7 @@ public class SalesAdController {
         return "login";
     }
 
-    @GetMapping("/createAds")
+    @GetMapping("/createAd")
     public String createads(Model model, SalesAd salesAd, Principal principal){
 
         model.addAttribute("ads", salesAd);

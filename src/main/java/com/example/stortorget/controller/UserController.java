@@ -46,7 +46,7 @@ public class UserController {
     public String updateUser(User currentUser, Principal principal) {
         System.out.println(currentUser);
         userService.editUser(currentUser, principal);
-        return "userSettings";
+        return "redirect:/userSettings";
     }
 
 }

@@ -14,33 +14,24 @@
 <br>
 <br>
 
-
-
-
 <div th:replace="fragments/navbars :: topNavbar"> </div>
 
-<div>
 
-    <form th:action="@{/search_ad}" method="get" autocomplete="off" style="max-width:500px; margin:auto; margin-top:50px;">
-        <div class="form-group text-center">
+<div id="main" style="height: 7em" class="grid">
 
-            <input class="form-control" name="search"></input>
-            <select class="mt-4" name="category">
-                <option value="all">Alla kategorier</option>
-                <option value="books">Böcker</option>
-                <option value="music">Musik</option>
-                <option value="electronics">Elektronik</option>
-            </select>
-            <p>
-            <button type="submit" class="btn btn-primary my-3"><strong>Sök annons</strong></button>
-            </p>
-        </div>
-
+    <form th:action="@{/updateUser}" th:object="${currentUser}" method="POST">
+        <input type="password" placeholder="********" th:field="*{password}"><br>
+        <input type="text"  th:value="*{email}" th:field="*{email}"><br>
+        <input type="text" th:value="*{phone}" th:field="*{phone}"><br>
+        <input type="text" placeholder="New Image" th:field="*{img}"><br>
+        <input class="btn" id="button-right" type="submit" value="Spara Ändringar">
     </form>
+
+
 </div>
 
 
-<div th:each="ad, iter: ${ads}" style="max-width:1000px; margin:auto;">
+<!--<div th:each="ad, iter: ${ads}" style="max-width:1000px; margin:auto;">
 
     <div class="card text-dark bg-light mb-5">
         <div class="card-header" th:style="${iter.count} % 2 == 0 ? 'background-color: #eff0f6' : 'background-color: #d7e3ea'">
@@ -57,7 +48,7 @@
             </strong>
 
         </div>
-    </div>
+    </div>-->
 
 
 

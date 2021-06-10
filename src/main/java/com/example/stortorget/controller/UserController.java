@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.security.Principal;
 
 @Controller
 public class UserController {
@@ -31,6 +34,19 @@ public class UserController {
         return "redirect:/login";
     }
 
-    //@GetMapping("/userSettings")
+    @GetMapping("/userSettings")
+    public String userSettings(Model model, Principal principal) {
+
+        model.addAttribute("currentUser", userService.getCurrentUser(principal));
+        System.out.println(userService.getCurrentUser(principal));
+        return "userSettings";
+    }
+
+    @PostMapping("/updateUser")
+    public String updateUser(User currentUser, Principal principal) {
+        System.out.println(currentUser);
+        userService.editUser(currentUser, principal);
+        return "userSettings";
+    }
 
 }

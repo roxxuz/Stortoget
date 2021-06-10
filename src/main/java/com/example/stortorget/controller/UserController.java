@@ -16,10 +16,10 @@ public class UserController {
     private UserService userService;
 
 
-    @GetMapping("/createaccount")
+    @GetMapping("/createAccount")
     public String createAccount(Model model, User user){
         model.addAttribute("usser", user);
-        return "createaccount";
+        return "createAccount";
     }
 
     @GetMapping("/createAcc")
@@ -30,5 +30,7 @@ public class UserController {
 
         return "redirect:/login";
     }
+
+    //@GetMapping("/userSettings")
 
 }

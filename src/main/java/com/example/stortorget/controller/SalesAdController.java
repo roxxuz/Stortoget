@@ -39,16 +39,16 @@ public class SalesAdController {
         return "login";
     }
 
-    @GetMapping("/createads")
+    @GetMapping("/createAds")
     public String createads(Model model, SalesAd salesAd, Principal principal){
 
         model.addAttribute("ads", salesAd);
 
-        return "newad";
+        return "newAd";
     }
 
 
-    @PostMapping("/newad")
+    @PostMapping("/newAd")
     public String newad(Principal principal, SalesAd salesAd){
 
         salesAd.setUserName(principal.getName());

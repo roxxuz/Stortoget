@@ -43,7 +43,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                 //.antMatchers(HttpMethod.GET).permitAll()
                 .antMatchers("/ads").permitAll()
                 .antMatchers("/search_ad").permitAll()
-                .antMatchers("/createaccount").permitAll()
+                .antMatchers("/createAccount").permitAll()
                 .antMatchers("/createAcc").permitAll()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()

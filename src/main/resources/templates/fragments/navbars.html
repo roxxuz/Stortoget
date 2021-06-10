@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+
+<div th:fragment="topNavbar">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top p-3">
+  <a class="navbar-brand" href="#"><strong>Stortorget</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" th:href="@{/ads}">Annonser</a>
+      <a class="nav-item nav-link" th:href="@{/createAd}">Skapa annons</a>
+      <a class="nav-item nav-link" th:href="@{/userSettings}">Mitt konto</a>
+      <a class="nav-item nav-link me-2" th:href="@{/login}">Logga in</a>
+      <a class="nav-item nav-link me-2" th:href="@{/logout}">Logga ut</a>
+
+    </div>
+  </div>
+</nav>
+</div>
+</body>
+</html>

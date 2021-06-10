@@ -9,11 +9,13 @@ import java.util.List;
 @Repository
 public interface SalesAdRepository extends JpaRepository<SalesAd, Long> {
 
-    SalesAd findByUserName(String userName);
+    List<SalesAd> findByUserName(String userName);
 
     List<SalesAd> findAllByOrderByIdDesc();
 
     List<SalesAd> findByItemContainingOrDescriptionContaining(String search1, String search2);
 
     List<SalesAd> findByItemContainingAndCategoryOrDescriptionContainingAndCategory(String search1,String category1, String search2, String category2);
+
+
 }

@@ -31,7 +31,7 @@
 </div>
 
 
-<!--<div th:each="ad, iter: ${ads}" style="max-width:1000px; margin:auto;">
+<div th:each="ad, iter: ${userAds}" style="max-width:1000px; margin:auto;">
 
     <div class="card text-dark bg-light mb-5">
         <div class="card-header" th:style="${iter.count} % 2 == 0 ? 'background-color: #eff0f6' : 'background-color: #d7e3ea'">
@@ -46,9 +46,17 @@
             <strong>
             <p class="card-text" th:text="${ad.price}" />
             </strong>
+            <p class="card-text" th:text="${ad.id}" />
 
         </div>
-    </div>-->
+
+        <div style="text-align: right;">
+            <form class="card-link" th:action="@{/delete_message/{id}(id=${ad.id})}" method="get">
+                <input type="image" name="submit" th:src="@{/images/trash-can.png}" alt="Submit" style="width: 30px;" />
+            </form>
+        </div>
+
+    </div>
 
 
 

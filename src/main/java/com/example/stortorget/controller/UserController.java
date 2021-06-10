@@ -1,5 +1,6 @@
 package com.example.stortorget.controller;
 
+import com.example.stortorget.entity.SalesAd;
 import com.example.stortorget.entity.User;
 import com.example.stortorget.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,11 @@ public class UserController {
     public String userSettings(Model model, Principal principal) {
 
         model.addAttribute("currentUser", userService.getCurrentUser(principal));
-        System.out.println(userService.getCurrentUser(principal));
+
+        model.addAttribute("userAds", userService.getUserAds(principal));
+
+        model.addAttribute("emptyAd", new SalesAd());
+
         return "userSettings";
     }
 

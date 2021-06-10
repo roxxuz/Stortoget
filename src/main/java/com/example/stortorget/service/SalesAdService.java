@@ -35,4 +35,9 @@ public class SalesAdService {
 
     }
 
+    public void deleteAd(long id){
+
+        salesAdRepository.deleteById(id);
+    }
+
 }

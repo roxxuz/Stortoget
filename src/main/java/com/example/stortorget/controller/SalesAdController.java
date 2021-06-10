@@ -68,4 +68,12 @@ public class SalesAdController {
         return "ads";
     }
 
+    @GetMapping("/delete_message/{id}")
+    public String deleteMessage(@PathVariable long id){
+
+        salesAdService.deleteAd(id);
+
+        return "redirect:/userSettings";
+    }
+
 }

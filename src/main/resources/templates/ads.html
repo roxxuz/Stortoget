@@ -44,13 +44,13 @@
 
     <div class="card text-dark bg-light mb-5">
         <div class="card-header" th:style="${iter.count} % 2 == 0 ? 'background-color: #eff0f6' : 'background-color: #d7e3ea'">
-            <p th:text="${ad.dateTime}" />
+            <h5 style="float: left" class="card-title"><p th:text="${ad.item}" /></h5>
+            <p style="text-align: right; float: right" th:text="${ad.dateTime}" />
         </div>
         <div class="card-body">
 
             <img th:src="@{${ad.img}}" id="board_ad_img"/>
 
-            <h5 class="card-title"><p th:text="${ad.item}" /></h5>
             <p class="card-text" th:text="${ad.description}" />
             <strong>
             <p class="card-text" th:text="${ad.price}" />

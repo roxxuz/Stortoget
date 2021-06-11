@@ -40,16 +40,19 @@
 </div>
 
 
-<div th:each="ad, iter: ${ads}" style="max-width:1000px; margin:auto;">
+<div class="ads" th:each="ad, iter: ${ads}" style="max-width:1000px; margin:auto;">
 
     <div class="card text-dark bg-light mb-5">
         <div class="card-header" th:style="${iter.count} % 2 == 0 ? 'background-color: #eff0f6' : 'background-color: #d7e3ea'">
             <h5 style="float: left" class="card-title"><p th:text="${ad.item}" /></h5>
             <p style="text-align: right; float: right" th:text="${ad.dateTime}" />
         </div>
+
         <div class="card-body">
 
-            <img th:src="@{${ad.img}}" id="board_ad_img"/>
+            <div class="container">
+            <img class="bigger" th:src="@{${ad.img}}" id="board_ad_img"/>
+            </div>
 
             <p class="card-text" th:text="${ad.description}" />
             <strong>

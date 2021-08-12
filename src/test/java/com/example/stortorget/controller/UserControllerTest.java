@@ -72,4 +72,26 @@ class UserControllerTest {
         userRepository.delete(testUser);
 
     }
+
+    @Test
+    void deleteUser() {
+
+        //given
+        User testUser = new User("testUserName",
+                "testPass",
+                "testPhone",
+                "test@email.com",
+                "user",
+                "testImage");
+
+        userRepository.save(testUser);
+
+        //when
+        userRepository.delete(testUser);
+
+        //then
+        User DBUser = userRepository.findByUserName(testUser.getUserName());
+        //If DBUser is null then the user is deleted from database
+        assertThat(DBUser).isEqualTo(null);
+    }
 }

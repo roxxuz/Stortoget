@@ -56,4 +56,14 @@ public class UserController {
         return "redirect:/userSettings";
     }
 
+    @GetMapping("/deleteUser")
+    public String deleteUser(Principal principal){
+
+        //Delete currently signed in user
+        userService.deleteUser(principal);
+
+        //Redirecting to main page after user is deleted
+        return "redirect:/";
+    }
+
 }

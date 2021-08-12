@@ -73,4 +73,13 @@ public class UserService {
 
     }
 
+    public void deleteUser(Principal principal){
+
+        //Get currently signed in user and save as a new user object
+        User user = getCurrentUser(principal);
+        //Delete currently signed in user from DB
+        userRepository.delete(user);
+
+    }
+
 }

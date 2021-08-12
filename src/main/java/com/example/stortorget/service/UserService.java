@@ -25,6 +25,7 @@ public class UserService {
 
     public void saveUser(User user){
 
+        //encoding user password before sending and saving the new user to the DB
         String hashedPass = passwordEncoder.encode(user.getPassword());
         user.setPassword(hashedPass);
 
@@ -41,6 +42,7 @@ public class UserService {
         userRepository.delete(user);
     }
 
+    //Returns User object from database of the currently logged in user
     public User getCurrentUser(Principal principal){
 
         return userRepository.findByUserName(principal.getName());
@@ -52,8 +54,8 @@ public class UserService {
         user.setId(userRepository.findByUserName(principal.getName()).getId());
         user.setUserName(principal.getName());
 
-        // Om inget nytt lösenord har angavs så sätts användarens tidigare lösenord
-        // else - så hashas det nya lösenordet
+        // If no new password is entered then the old (encoded) password is kept.
+        // else - the new password is encoded
         if(user.getPassword().equals("")){
             user.setPassword(userRepository.findByUserName(principal.getName()).getPassword());
         }
@@ -64,6 +66,7 @@ public class UserService {
         userRepository.save(user);
     }
 
+    //Returns a List of ads created by the currently signed in user
     public List<SalesAd> getUserAds(Principal principal){
 
         return salesAdRepository.findByUserName(principal.getName());

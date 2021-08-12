@@ -79,7 +79,7 @@ public class SalesAd {
 
     public String getDateTime() {
 
-        // Tar bort det 'T' som uppstår mellan datum och tiden innan return
+        // Removing the 'T' between the time and date before returning
         String dateTime = this.dateTime.toString();
         dateTime = dateTime.replace('T', ' ');
 

@@ -22,12 +22,15 @@ public class SalesAdService {
         salesAdRepository.save(salesAd);
     }
 
+    //search method returning search on all categories or search on a specific category
     public List<SalesAd> searchAd(String search, String category) {
 
+        //returning DB ads List from search on all categories
         if(category.equals("all")){
 
             return salesAdRepository.findByItemContainingOrDescriptionContaining(search, search);
         }
+        //returning DB ads List from search on specific category
         else{
 
             return salesAdRepository.findByItemContainingAndCategoryOrDescriptionContainingAndCategory(search, category, search, category);

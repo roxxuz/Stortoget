@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
 
 
 <body>
@@ -15,9 +15,17 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" th:href="@{/ads}">Annonser</a>
       <a class="nav-item nav-link" th:href="@{/createAd}">Skapa annons</a>
-      <a class="nav-item nav-link" th:href="@{/userSettings}">Mitt konto</a>
+
+      <div sec:authorize="!isAuthenticated()">
       <a class="nav-item nav-link me-2" th:href="@{/login}">Logga in</a>
-      <a class="nav-item nav-link me-2" th:href="@{/logout}">Logga ut</a>
+      </div>
+
+      <div sec:authorize="isAuthenticated()">
+        <a class="nav-item nav-link" th:href="@{/userSettings}">Mitt konto</a>
+      </div>
+      <div sec:authorize="isAuthenticated()">
+        <a class="nav-item nav-link me-2" th:href="@{/logout}">Logga ut</a>
+      </div>
 
     </div>
   </div>

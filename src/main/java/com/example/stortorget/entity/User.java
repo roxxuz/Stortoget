@@ -20,6 +20,7 @@ public class User{
     public User() {
     }
 
+    //2nd constructor
     public User(String userName, String password, String phone, String email, String role, String img) {
         this.userName = userName;
         this.password = password;

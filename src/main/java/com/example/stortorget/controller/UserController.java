@@ -22,6 +22,7 @@ public class UserController {
 
     @GetMapping("/createAccount")
     public String createAccount(Model model, User user){
+        //Adding empty User object to model
         model.addAttribute("usser", user);
         return "createAccount";
     }
@@ -29,7 +30,7 @@ public class UserController {
     @GetMapping("/createAcc")
     public String saveUser(@ModelAttribute("usr") User usr, Model model){
 
-    //    System.out.println("INNE I SAVEUSER");
+
         userService.saveUser(usr);
 
         return "redirect:/login";
@@ -38,10 +39,11 @@ public class UserController {
     @GetMapping("/userSettings")
     public String userSettings(Model model, Principal principal) {
 
+        //Adding User object of currently signed in user to the model
         model.addAttribute("currentUser", userService.getCurrentUser(principal));
-
+        //Adding List of all ads created by the currently signed in user
         model.addAttribute("userAds", userService.getUserAds(principal));
-
+        //Adding empty sales ad object
         model.addAttribute("emptyAd", new SalesAd());
 
         return "userSettings";
@@ -49,7 +51,7 @@ public class UserController {
 
     @PostMapping("/updateUser")
     public String updateUser(User currentUser, Principal principal) {
-        System.out.println(currentUser);
+        //Updating the currently signed in user settings
         userService.editUser(currentUser, principal);
         return "redirect:/userSettings";
     }

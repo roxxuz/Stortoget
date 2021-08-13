@@ -3,7 +3,6 @@
 
 body {
     background: white;
-    animation: gradient 15s ease infinite;
 }
 
 .navbar-light {
@@ -21,6 +20,14 @@ body {
     border-radius: 25%;
     border: 2px solid #03045e;
     padding: 5px;
+}
+
+a {
+    color: #0077b6;
+}
+
+.border {
+    border-color: #0077b6 !important;
 }
 
 .centered{

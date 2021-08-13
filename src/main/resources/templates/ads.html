@@ -56,8 +56,9 @@
 
             <p class="card-text" th:text="${ad.description}" />
             <strong>
-            <p class="card-text" th:text="${ad.price}" />
+            <p class="card-text" th:text="${ad.price + ':-'}" />
             </strong>
+            <a th:href="@{mailto:{to}(to=${ad.email},subject=${'Ang. ' + ad.item + ' (Din annons på Stortorget)'})}" style="text-align: right; float: right">Kontakta säljaren</a>
 
         </div>
     </div>

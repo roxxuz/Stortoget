@@ -2,6 +2,7 @@ package com.example.stortorget.controller;
 
 import com.example.stortorget.entity.SalesAd;
 import com.example.stortorget.service.SalesAdService;
+import com.example.stortorget.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,9 @@ public class SalesAdController {
 
     @Autowired
     private SalesAdService salesAdService;
+
+    @Autowired
+    private UserService userService;
 
     //Redirect to show all ads as the first landing page.
     @GetMapping("/")
@@ -55,7 +59,8 @@ public class SalesAdController {
 
         //Sets the currently logged in user as username for the created ad.
         salesAd.setUserName(principal.getName());
-
+        //Sets ads email for contact
+        salesAd.setEmail(userService.getCurrentUser(principal).getEmail());
         //saves new ad to DB
         salesAdService.saveSalesAd(salesAd);
 

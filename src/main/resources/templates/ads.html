@@ -24,7 +24,7 @@
     <form th:action="@{/search_ad}" method="get" autocomplete="off" style="max-width:500px; margin:auto; margin-top:50px;">
         <div class="form-group text-center">
 
-            <input class="form-control" name="search"></input>
+            <input class="form-control" name="search" placeholder="Ange produktnamn eller beskrivning..."></input>
             <select class="mt-4" name="category">
                 <option value="all">Alla kategorier</option>
                 <option value="books">Böcker</option>
@@ -43,9 +43,9 @@
 <div class="ads" th:each="ad, iter: ${ads}" style="max-width:1000px; margin:auto;">
 
     <div class="card text-dark bg-light mb-5">
-        <div class="card-header" th:style="${iter.count} % 2 == 0 ? 'background-color: #eff0f6' : 'background-color: #d7e3ea'">
-            <h5 style="float: left" class="card-title"><p th:text="${ad.item}" /></h5>
-            <p style="text-align: right; float: right" th:text="${ad.dateTime}" />
+        <div class="card-header" th:style="${iter.count} % 2 == 0 ? 'background-color: #caf0f8' : 'background-color: #90e0ef'">
+            <h5 style="float: left;" class="card-title"><p th:text="${ad.item}" /></h5>
+            <p style="text-align: right; float: right;" th:text="${ad.dateTime}" />
         </div>
 
         <div class="card-body">

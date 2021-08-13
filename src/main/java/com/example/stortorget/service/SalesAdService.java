@@ -28,12 +28,12 @@ public class SalesAdService {
         //returning DB ads List from search on all categories
         if(category.equals("all")){
 
-            return salesAdRepository.findByItemContainingOrDescriptionContaining(search, search);
+            return salesAdRepository.findByItemContainingOrDescriptionContainingOrderByIdDesc(search, search);
         }
         //returning DB ads List from search on specific category
         else{
 
-            return salesAdRepository.findByItemContainingAndCategoryOrDescriptionContainingAndCategory(search, category, search, category);
+            return salesAdRepository.findByItemContainingAndCategoryOrDescriptionContainingAndCategoryOrderByIdDesc(search, category, search, category);
         }
 
     }

@@ -18,12 +18,20 @@
 
 
 <div id="main" style="height: 7em" class="grid">
-
+<br><br>
     <form th:action="@{/updateUser}" th:object="${currentUser}" method="POST">
-        <input type="password" placeholder="********" th:field="*{password}"><br>
-        <input type="text"  th:value="*{email}" th:field="*{email}"><br>
-        <input type="text" th:value="*{phone}" th:field="*{phone}"><br>
-        <input type="text" placeholder="New Image" th:field="*{img}"><br>
+        <label>
+            <input type="password" placeholder="********" th:field="*{password}">
+        </label><br>
+        <label>
+            <input type="text"  th:value="*{email}" th:field="*{email}">
+        </label><br>
+        <label>
+            <input type="text" th:value="*{phone}" th:field="*{phone}">
+        </label><br>
+        <label>
+            <input type="text" placeholder="New Image" th:field="*{img}">
+        </label><br>
         <input class="btn" id="button-right" type="submit" value="Spara Ändringar">
     </form>
 
@@ -39,7 +47,7 @@
         </div>
         <div class="card-body">
 
-            <img th:src="@{${ad.img}}" id="board_ad_img"/>
+            <img th:src="@{${ad.img}}" id="board_ad_img" alt="img"/>
 
             <h5 class="card-title"><p th:text="${ad.item}" /></h5>
             <p class="card-text" th:text="${ad.description}" />
@@ -52,7 +60,7 @@
 
         <div style="text-align: right;">
             <form class="card-link" th:action="@{/delete_message/{id}(id=${ad.id})}" method="get">
-                <input type="image" name="submit" th:src="@{/images/trash-can.png}" alt="Submit" style="width: 30px;" />
+                <input type="image" name="submit" onclick="gone()" th:src="@{/images/trash-can.png}" alt="Submit" style="width: 30px;" />
             </form>
         </div>
 
@@ -62,6 +70,13 @@
 
 
 </div>
+
+            <script>
+                function gone() {
+                    alert("Annons raderad")
+                }
+            </script>
+
 
 </body>
 

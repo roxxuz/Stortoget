@@ -69,7 +69,7 @@ public class UserService {
     //Returns a List of ads created by the currently signed in user
     public List<SalesAd> getUserAds(Principal principal){
 
-        return salesAdRepository.findByUserName(principal.getName());
+        return salesAdRepository.findByUserNameOrderByIdDesc(principal.getName());
 
     }
 

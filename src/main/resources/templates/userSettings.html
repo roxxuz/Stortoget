@@ -16,28 +16,38 @@
 
 <div th:replace="fragments/navbars :: topNavbar"> </div>
 
+<div class="border rounded" style="max-width:600px; margin:auto; margin-top:50px; text-align: center;">
+<div class="mt-4" style="text-align: center;">
+    <h3 id="title">Användarinställningar</h3>
+</div>
 
-<div id="main" style="height: 7em" class="grid">
-<br><br>
-    <form th:action="@{/updateUser}" th:object="${currentUser}" method="POST">
-        <label>
-            <input type="password" placeholder="********" th:field="*{password}">
-        </label><br>
-        <label>
-            <input type="text"  th:value="*{email}" th:field="*{email}">
-        </label><br>
-        <label>
-            <input type="text" th:value="*{phone}" th:field="*{phone}">
-        </label><br>
-        <label>
-            <input type="text" placeholder="New Image" th:field="*{img}">
-        </label><br>
-        <input class="btn" id="button-right" type="submit" value="Spara Ändringar">
+<div>
+    <form th:action="@{/updateUser}" th:object="${currentUser}" method="POST" style="max-width:800px; margin:auto; margin-top:50px; text-align: center;">
+        <div class="form-group mb-5">
+            <label><strong>Lösenord</strong>
+                <input class="form-control" type="password" placeholder="********" th:field="*{password}">
+            </label><br>
+            <label class="mt-2"><strong>E-Mail</strong>
+                <input class="form-control" type="text"  th:value="*{email}" th:field="*{email}">
+            </label><br>
+            <label class="mt-2"><strong>Telefonnummer</strong>
+                <input class="form-control" type="text" th:value="*{phone}" th:field="*{phone}">
+            </label><br>
+            <label class="mt-2"><strong>URL till profilbild</strong>
+                <input class="form-control" type="text" placeholder="New Image" th:field="*{img}">
+            </label><br>
+            <input class="btn btn-primary mt-3" id="button-right" type="submit" value="Spara Ändringar">
+        </div>
     </form>
-
 
 </div>
 
+</div>
+
+<div class="mt-5" style="text-align: center;">
+    <h3 id="title2">Mina annonser</h3>
+    <i>Klicka på papperskorgen i hörnet av en annons för att ta bort den</i>
+</div>
 
 <div th:each="ad, iter: ${userAds}" style="max-width:1000px; margin:auto;">
 
@@ -52,15 +62,14 @@
             <h5 class="card-title"><p th:text="${ad.item}" /></h5>
             <p class="card-text" th:text="${ad.description}" />
             <strong>
-            <p class="card-text" th:text="${ad.price}" />
+            <p class="card-text" th:text="${ad.price} + ':-'" />
             </strong>
-            <p class="card-text" th:text="${ad.id}" />
 
         </div>
 
         <div style="text-align: right;">
             <form class="card-link" th:action="@{/delete_message/{id}(id=${ad.id})}" method="get">
-                <input type="image" name="submit" onclick="gone()" th:src="@{/images/trash-can.png}" alt="Submit" style="width: 30px;" />
+                <input class="m-2" type="image" name="submit" onclick="gone()" th:src="@{/images/trash-can.png}" alt="Submit" style="width: 30px;" />
             </form>
         </div>
 

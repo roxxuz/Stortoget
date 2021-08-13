@@ -2,18 +2,78 @@
 
 
 body {
-    background: linear-gradient(-45deg, #182968, #ef1c34, #20ee0a, #a5abc4, #5c6ae0, #6abcd9);
+    background: white;
     animation: gradient 15s ease infinite;
 }
 
+.navbar-light {
+    background: #caf0f8;
+}
+
+.border-bottom {
+    border-color: #0077b6 !important;
+}
 
 #board_ad_img {
     object-fit: cover;
     width: 70px;
     height: 70px;
     border-radius: 25%;
-    border: 2px solid #000000;
+    border: 2px solid #03045e;
     padding: 5px;
+}
+
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.below_centered{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #0077b6 !important;
+    border-color: #0077b6 !important;
+    outline-color: #0077b6 !important;
+    color: white !important;
+}
+
+.btn-primary:hover{
+    border-color: #0077b6 !important;
+}
+
+.dropdown-menu{
+    text-align: center;
+}
+
+.btn-primary:focus{
+    box-shadow: 0 0 0 3px #0077b6 !important;
+    color: black;
+}
+
+.form-control{
+    border-color: #0077b6 !important;
+    box-shadow: 0 0 0 1px #0077b6 !important;
+}
+
+.form-control:focus {
+    border-color: #0077b6 !important;
+    box-shadow: 0 0 0 3px #0077b6 !important;
+}
+
+.card {
+    border-radius: 15px !important;
+    border-color: #0077b6 !important;
+}
+.card-header {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
 }
 
 /*.dive {*/

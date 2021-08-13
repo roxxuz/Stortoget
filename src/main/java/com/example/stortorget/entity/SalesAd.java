@@ -12,7 +12,10 @@ public class SalesAd {
     private long id;
 
     private String item;
+
+    @Column(length = 2000)
     private String description;
+
     private String category;
     private String userName;
     private int price;

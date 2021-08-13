@@ -17,6 +17,15 @@ public class SalesAd {
     private String userName;
     private int price;
     private String img;
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;

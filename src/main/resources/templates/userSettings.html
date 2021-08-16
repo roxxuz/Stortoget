@@ -46,31 +46,39 @@
 
 <div class="mt-5" style="text-align: center;">
     <h3 id="title2">Mina annonser</h3>
-    <i>Klicka på papperskorgen i hörnet av en annons för att ta bort den</i>
+    <i>Klicka på symbolerna i hörnet av en annons för att redigera eller ta bort annonsen</i>
 </div>
 
 <div th:each="ad, iter: ${userAds}" style="max-width:1000px; margin:auto;">
 
     <div class="card text-dark bg-light mb-5">
-        <div class="card-header" th:style="${iter.count} % 2 == 0 ? 'background-color: #eff0f6' : 'background-color: #d7e3ea'">
-            <p th:text="${ad.dateTime}" />
+        <div class="card-header" th:style="${iter.count} % 2 == 0 ? 'background-color: #caf0f8' : 'background-color: #90e0ef'">
+            <h5 style="float: left;" class="card-title"><p th:text="${ad.item}" /></h5>
+            <p style="text-align: right; float: right;" th:text="${ad.dateTime}" />
         </div>
         <div class="card-body">
 
-            <img th:src="@{${ad.img}}" id="board_ad_img" alt="img"/>
+            <div class="container">
+                <img class="bigger" th:src="@{${ad.img}}" id="board_ad_img"/>
+            </div>
 
-            <h5 class="card-title"><p th:text="${ad.item}" /></h5>
             <p class="card-text" th:text="${ad.description}" />
             <strong>
-            <p class="card-text" th:text="${ad.price} + ':-'" />
+                <p class="card-text" th:text="${ad.price + ':-'}" />
             </strong>
 
         </div>
-
-        <div style="text-align: right;">
-            <form class="card-link" th:action="@{/delete_message/{id}(id=${ad.id})}" method="get">
-                <input class="m-2" type="image" name="submit" onclick="gone()" th:src="@{/images/trash-can.png}" alt="Submit" style="width: 30px;" />
-            </form>
+        <div>
+            <div style="text-align: right; float: right;">
+                <form class="card-link" th:action="@{/delete_message/{id}(id=${ad.id})}" method="get">
+                    <input class="m-2" type="image" name="submit" onclick="gone()" th:src="@{/images/trash-can.png}" alt="Submit" style="width: 30px;" />
+                </form>
+            </div>
+            <div style="float: right;">
+                <form class="card-link" th:action="@{/editAd/{id}(id=${ad.id})}" method="get">
+                    <input class="m-2" type="image" name="submit" th:src="@{/images/edit.png}" alt="Submit" style="width: 30px;" />
+                </form>
+            </div>
         </div>
 
     </div>

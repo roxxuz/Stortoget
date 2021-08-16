@@ -83,7 +83,7 @@ public class SalesAdController {
         return "ads";
     }
 
-    //Delete message based on the id in the url
+    //Delete ad based on the id in the url
     @GetMapping("/delete_message/{id}")
     public String deleteMessage(@PathVariable long id){
 
@@ -92,4 +92,21 @@ public class SalesAdController {
         return "redirect:/userSettings";
     }
 
+    //Edit ad based on the id in the url
+    @GetMapping("/editAd/{id}")
+    public String editAd(@PathVariable long id, Model model){
+
+        model.addAttribute("ad", salesAdService.getAdById(id));
+
+        return "editAd";
+    }
+
+    //Update ad based on the id in the url
+    @PostMapping("/updateAd")
+    public String updateAd(SalesAd salesAd, Principal principal){
+
+        salesAdService.saveSalesAd(salesAd);
+
+        return "redirect:/userSettings";
+    }
 }

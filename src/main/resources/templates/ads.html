@@ -66,8 +66,8 @@
             <strong>
             <p class="card-text" th:text="${ad.price + ':-'}" />
             </strong>
-            <a th:href="@{mailto:{to}(to=${ad.email},subject=${'Ang. ' + ad.item + ' (Din annons på Stortorget)'})}" style="text-align: right; float: right">
-                <img alt="Kontakta säljaren" title="contact" th:src="@{/images/email.png}" />
+            <a th:href="@{mailto:{to}(to=${ad.email},subject=${'Ang. ' + ad.item + ' (Din annons på Blå Torget)'})}" style="text-align: right; float: right">
+                <img alt="Kontakta säljaren" title="contact" th:src="@{/images/email.png}" style="width: 30px;" />
             </a>
 
         </div>

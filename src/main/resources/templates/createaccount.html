@@ -21,26 +21,34 @@
 <div th:replace="fragments/navbars :: topNavbar"> </div>
 
 
-<div>
-  <h1 id="title">Skapa nytt konto</h1>
-</div>
-<div id="main" style="height: 7em" class="grid">
-
-  <form th:action="@{/createAcc}" th:object="${usser}" method="GET">
-    <input type="text" placeholder="Username" th:field="*{userName}"><br>
-    <input type="password" placeholder="Password" th:field="*{password}"><br>
-    <input type="text" placeholder="Email" th:field="*{email}"><br>
-    <input type="text" placeholder="Phone Number" th:field="*{phone}"><br>
-    <input type="text" placeholder="url to image" th:field="*{img}"><br>
-    <input class="btn" id="button-right" type="submit" value="Create account">
-  </form>
-
-  <form th:action="@{/login}" method="GET">
-    <input class="btn" style="float: right" type="submit" value="Login">
-  </form>
-
+<div class="mt-4" style="text-align: center;">
+  <h3 id="title">Registrera ny användare</h3>
 </div>
 
+<div class="border rounded" style="max-width:300px; margin:auto; margin-top:50px; text-align: center;">
+
+  <form th:action="@{/createAcc}" th:object="${usser}" method="GET" autocomplete="off">
+    <div class="form-group m-4">Användarnamn
+      <input class="form-control" type="text" th:field="*{userName}">
+    </div>
+    <div class="form-group m-4">Lösenord
+      <input class="form-control" type="password" th:field="*{password}">
+    </div>
+    <div class="form-group m-4">Email
+      <input class="form-control" type="text" th:field="*{email}">
+    </div>
+    <div class="form-group m-4">Telefon
+      <input class="form-control" type="text" th:field="*{phone}">
+    </div>
+    <div class="form-group m-4">URL till bild
+      <input class="form-control" type="text" th:field="*{img}">
+    </div>
+    <div class="form-group m-4">
+      <button class="btn btn-primary" id="button-right" type="submit">Skapa användare</button>
+    </div>
+  </form>
+
+</div>
 
 
 </body>

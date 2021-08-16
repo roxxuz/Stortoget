@@ -17,14 +17,11 @@
 
 <div th:replace="fragments/navbars :: topNavbar"> </div>
 
-
-<div class="grid">
-
-    <div class="floater">
+<div class="border rounded" style="max-width:600px; margin:auto; margin-top:50px; text-align: center;">
 
         <fieldset>
             <form autocomplete="off" name="f" th:action="@{/login}" method="post">
-                
+
                 <legend>Login</legend>
                 <div id="login" th:if="${param.error}" class="alert alert-error">
                     Felaktigt användarnamn eller lösenord

@@ -43,4 +43,9 @@ public class SalesAdService {
         salesAdRepository.deleteById(id);
     }
 
+    public SalesAd getAdById(long id){
+
+        return salesAdRepository.findById(id);
+    }
+
 }

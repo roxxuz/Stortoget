@@ -54,12 +54,18 @@
         <input type="hidden" th:value="*{email}" th:field="*{email}">
 
         <div class="form-group m-4">
-            <button type="submit" class="btn btn-primary"><strong>Spara ändringar</strong></button>
+            <button type="submit" class="btn btn-primary" onclick="edit()"><strong>Spara ändringar</strong></button>
         </div>
     </form>
 
 
 </div>
+
+<script>
+    function edit() {
+        alert("Annons redigerad")
+    }
+</script>
 
 </body>
 

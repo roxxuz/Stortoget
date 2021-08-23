@@ -23,12 +23,22 @@
         <a class="nav-item nav-link" th:href="@{/userSettings}">Mitt konto</a>
       </div>
       <div sec:authorize="isAuthenticated()">
-        <a class="nav-item nav-link me-2" th:href="@{/logout}">Logga ut</a>
+        <a class="nav-item nav-link me-2" th:href="@{/adminPanel}">Adminpanel</a>
+      </div>
+      <div sec:authorize="isAuthenticated()">
+        <a class="nav-item nav-link me-2" onclick="adminMsg()" th:href="@{/logout}">Logga ut</a>
       </div>
 
     </div>
   </div>
 </nav>
 </div>
+
+<script>
+  function adminMsg() {
+    alert("Du har inte behörighet att besöka denna meny")
+  }
+</script>
+
 </body>
 </html>

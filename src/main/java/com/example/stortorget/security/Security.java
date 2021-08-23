@@ -39,6 +39,7 @@ public class Security extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/adminPanel").hasAuthority("admin")
                 .antMatchers("/css/style.css").permitAll()
                 .antMatchers("/images/email.png").permitAll()
                 //.antMatchers(HttpMethod.GET).permitAll()
@@ -49,7 +50,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .exceptionHandling().accessDeniedPage("/")
+                .exceptionHandling().accessDeniedPage("/accessDeniedPage")
                 .and()
                 .formLogin()
                 .permitAll()

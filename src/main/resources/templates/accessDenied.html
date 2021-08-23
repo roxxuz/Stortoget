@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stortorget</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+
+</head>
+<body>
+<br>
+<br>
+<br>
+
+<div th:replace="fragments/navbars :: topNavbar"> </div>
+
+<div class="border rounded" style="max-width:600px; margin:auto; margin-top:50px; text-align: center;">
+    <div class="mt-4" style="text-align: center;">
+        <h3 id="title">Obehörig</h3>
+        <p>Du har inte behörighet att besöka denna sida</p>
+        <p style="display:inline;">
+            Återgår om <div id="counter" style="display:inline;">5</div> sekunder
+        </p>
+
+    </div>
+
+</div>
+
+
+
+    <script>
+        setInterval(function() {
+        let div = document.querySelector("#counter");
+        let count = div.textContent * 1 - 1;
+        div.textContent = count;
+        if (count <= 0) {
+            window.location.replace("/");
+        }
+    }, 1000);
+</script>
+
+
+</body>
+
+</html>

@@ -66,4 +66,21 @@ public class UserController {
         return "redirect:/";
     }
 
+    @GetMapping("/adminPanel")
+    public String adminPanel(Model model) {
+
+        model.addAttribute("user", new User());
+
+        return "adminPanel";
+    }
+
+    @GetMapping("/accessDeniedPage")
+    public String accessDeniedPage(Model model){
+
+        model.addAttribute("denied", true);
+
+        return "accessDenied";
+    }
+
+
 }
